@@ -1,1 +1,99 @@
 <ion-nav [root]="rootPage"></ion-nav>
+<ion-content>
+    <h2>Hello Barcode de merde!</h2>
+    <button ion-button (click)="scanCodebar()">Scan</button>
+    <button ion-button (click)="refresh()">Refresh</button>
+    <button ion-button (click)="clearDbMagasin()" ion-button color="danger">Reset</button>
+    <button ion-button (click)="startGps()" ion-button color="secondary">Start Gps</button>
+    <button ion-button (click)="stopGps()" ion-button color="danger">Stop Gps</button>
+    <button ion-button (click)="entregistrerTousLesDonnees()">
+        <ion-icon name="archive" item-start></ion-icon>        
+    </button>
+
+
+    <ion-list>
+        <ion-item>
+            <h1>Cancelled : {{dataFromBarcodeScanner.cancelled }}</h1>
+            <h1>Format : {{dataFromBarcodeScanner.format }}</h1>
+            <h1>Text : {{dataFromBarcodeScanner.text }}</h1>
+            <h1>log : {{logError}}</h1>
+        </ion-item>
+    </ion-list>
+    log : {{logError}}
+    <h2> GPS </h2>
+
+    <ion-list>
+        <ion-item>
+            <ion-avatar item-start>
+                <ion-icon name="locate"></ion-icon>
+            </ion-avatar>
+            <h2> Latitude : {{lat}}</h2>
+        </ion-item>
+
+        <ion-item>
+            <ion-avatar item-start>
+                <ion-icon name="locate"></ion-icon>
+            </ion-avatar>
+            <h2> Longitude : {{long}}</h2>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item>
+            <ion-avatar item-start>
+                <ion-icon name="camera"></ion-icon>
+            </ion-avatar>
+            <h2> Image : {{lat}}</h2>
+        </ion-item>
+    </ion-list>
+    <!--<ion-card>
+       <img src={{photoPriseBase64}}>
+       <ion-card-content>
+           <ion-card-title>
+               Image prise avec Base64
+           </ion-card-title>
+           <button ion-button (click)="onTackPhoto()" >
+               <ion-icon name="camera" item-start></ion-icon>        
+            </button>
+       </ion-card-content>
+    </ion-card> -->
+
+    <ion-card>
+        <img src={{photoPrise}}>
+        <ion-card-content>
+            <ion-card-title>
+                Image prise Test
+            </ion-card-title>
+            <button ion-button (click)="onTackPhoto()">
+               <ion-icon name="camera" item-start></ion-icon>        
+            </button>
+        </ion-card-content>
+    </ion-card>
+
+
+    <ion-list>
+        <ion-item-sliding *ngFor="let magasin of dataFromSqlite">
+            <ion-item>
+                <h2>id: {{magasin.id}} </h2>
+                <h2>name: {{magasin.name}} </h2>
+                <h2>adresse: {{magasin.adresse}} </h2>
+                <h2>Codebar Cancelled: {{magasin.codebarCancelled}} </h2>
+                <h2>Codebar Format: {{magasin.codebarFormat}} </h2>
+                <h2>Codebar Text: {{magasin.codebarText}} </h2>
+                <h2>Gps Latitude: {{magasin.gpsLatitude}} </h2>
+                <h2>Gps Longitude: {{magasin.gpsLongitude}} </h2>
+                <ion-card>
+                    <img src={{magasin.imageMagasin}}>
+                    <ion-card-content>
+                        <ion-card-title>
+                            Image prise Test
+                        </ion-card-title>
+                    </ion-card-content>
+                </ion-card>
+            </ion-item>
+        </ion-item-sliding>
+    </ion-list>
+
+
+
+</ion-content>

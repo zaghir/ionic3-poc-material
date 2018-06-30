@@ -1,0 +1,62 @@
+====> doc de barcode-scanner
+https://ionicframework.com/docs/native/barcode-scanner/
+
+======> creer un nouveau projet ionic
+ionic start appBarcodeScanner blank
+
+======> installer le module de barcode
+aller dans le dossier appBarcodeScanner apres la creation 
+ionic cordova plugin add phonegap-plugin-barcodescanner
+npm install --save @ionic-native/barcode-scanner
+
+
+======> creer une nouvelle page 
+ionic generate page magazins 
+
+======> demarer le serveur
+ionic serve 
+http://localhost:8100
+
+=======> ionic sqlite
+https://ionicframework.com/docs/native/sqlite/
+
+ionic cordova plugin add cordova-sqlite-storage
+npm install --save @ionic-native/sqlite
+
+=======> builder l'application 
+==> ionic cordova run android
+
+=======> probleme de cordova pour tester les fonctions sqlite
+ajouter le plugin cordova pour qu'il s execute sur le navigateur
+==> ionic cordova run browser --livereload
+il y a aussi ==> ionic cordova emulate android -lc --address=localhost
+mais ==> ionic cordova run browser installer le plugin
+bien sur pour creer un .apk c'est avec ==>ionic cordova run android
+
+
+=======> geolocation 
+https://ionicframework.com/docs/native/geolocation/
+==> ionic cordova plugin add cordova-plugin-geolocation --variable GEOLOCATION_USAGE_DESCRIPTION="To locate you"
+==> npm install --save @ionic-native/geolocation
+==> npm install --save @ionic-native/background-geolocation
+
+=======> Camera
+https://ionicframework.com/docs/native/camera/
+==> ionic cordova plugin add cordova-plugin-camera
+==> npm install --save @ionic-native/camera
+
+====== Android studio et les emulateurs 
+dans varibales systemes creer la variable ANDROID_HOME
+==> ANDROID_HOME  -- valeur  C:\Outil-de-developpement\Android\sdk
+ajouter dans la varible $path les variables suivantes
+==> ;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;
+
+=======> Inspecter les logs avec Chrome - android studio , genymotion 
+===> dans chrome tapper l url  --> chrome://inspect/#devices
+
+=======> 
+JAVA_HOME = C:\Program Files\Java\jdk1.8.0_65
+GRADLE_HOME = C:\Outil-de-developpement\gradle-4.2.1
+ANDROID_HOME = C:\Outil-de-developpement\Android\sdk
+PATH = %JAVA_HOME%\bin;%M2_HOME%\bin;%GRADLE_HOME%/bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;
+
